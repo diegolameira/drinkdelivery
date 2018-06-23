@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["./*"],
+      "@pages/*": ["./pages/*"],
+      "@components/*": ["./components/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
+}
