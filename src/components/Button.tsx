@@ -6,7 +6,7 @@ import { styl } from '@configs/theme';
 
 interface Props {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 export default ({ title, onPress }: Props) => (
@@ -26,14 +26,14 @@ const TouchableWrapper = styl(
   border-radius: 6px;
 `;
 
-const View = styl(styled.View)`
+export const View = styl(styled.View)`
   background: ${({ theme }) => theme.primary};
   border-radius: 6px;
   padding: 20px;
   margin: 10px 0;
 `;
 
-const Text = styl(styled.Text)`
+export const Text = styl(styled.Text)`
   color: ${({ theme }) => theme.foreground};
   font-size: 18px;
   font-weight: 500;

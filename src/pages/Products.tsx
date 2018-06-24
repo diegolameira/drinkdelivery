@@ -2,18 +2,12 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { styl } from '@configs/theme';
-import Input from '@components/Input';
-import Link from '@components/Link';
 
 export default () => (
   <Wrapper>
-    <Title>Monstro, {'\n'}vamos beber?</Title>
-    <Input label={'Endereço de entrega'} placeholder={'Ex. Av Paulista 228'} />
-    <Link title={'Ver produtos'} to="/products" />
+    <Title>Products</Title>
   </Wrapper>
 );
-
-const onSubmit = () => {};
 
 const Wrapper = styl(styled.View)`
   padding: 30px;
