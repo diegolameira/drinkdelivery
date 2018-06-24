@@ -1,23 +1,48 @@
 import React from 'react';
+import { ListView } from 'react-native';
 import styled from 'styled-components/native';
 
 import { styl } from '@configs/theme';
+import Card from '@components/Card';
 
-export default () => (
+interface Props {}
+
+interface CardProps {
+  id: number;
+  title: string;
+  picture: string;
+  price: number;
+}
+
+export default (props: Props) => (
+  <ListView dataSource={ds.cloneWithRows(Mock)} renderRow={renderItem} />
+);
+
+const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+
+const renderItem = (props: CardProps) => (
   <Wrapper>
-    <Title>Products</Title>
+    <Card {...props} />
   </Wrapper>
 );
 
 const Wrapper = styl(styled.View)`
-  padding: 30px;
+  margin: 10px 30px;
 `;
 
-const Title = styl(styled.Text)`
-  color: ${({ theme }) => theme.foreground};
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 40px;
-  padding: 10px 0;
-  margin: 0 0;
-`;
+const Mock: CardProps[] = [
+  {
+    id: 1,
+    title: 'Brahma 600ml',
+    picture:
+      'https://s3-us-west-2.amazonaws.com/courier-images-prod/product/00009110_fd310686-8c79-468e-83b4-f6bb69f4ee78.jpg',
+    price: 974.44
+  },
+  {
+    id: 2,
+    title: 'Brahma 600ml',
+    picture:
+      'https://s3-us-west-2.amazonaws.com/courier-images-prod/product/00009110_fd310686-8c79-468e-83b4-f6bb69f4ee78.jpg',
+    price: 74.4
+  }
+];
