@@ -8,12 +8,14 @@ interface Props {
   label?: string;
   placeholder?: string;
   onChange?: ((event: FormEvent<HTMLElement>) => void) | undefined;
+  align?: string;
 }
 
-export default ({ label, placeholder, onChange }: Props) => (
+export default ({ label, placeholder, onChange, align }: Props) => (
   <Wrapper>
     <Label>{label ? label.toUpperCase() : null}</Label>
     <Input
+      textAlign={align}
       underlineColorAndroid="transparent"
       placeholder={placeholder}
       onChange={onChange}
@@ -42,6 +44,6 @@ const Input = styl(styled.TextInput)`
     color(theme.foreground)
       .alpha(0.2)
       .toString()};
-  padding: 15px;
-  font-size: 16px;
+  padding: 18px 20px;
+  font-size: 20px;
 `;
