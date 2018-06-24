@@ -8,6 +8,7 @@
     "paths": {
       "*": ["./*"],
       "@pages/*": ["./pages/*"],
+      "@configs/*": ["./configs/*"],
       "@components/*": ["./components/*"]
     },
     "allowSyntheticDefaultImports": true,

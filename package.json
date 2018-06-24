@@ -8,8 +8,12 @@
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
+    "@types/color": "^3.0.0",
+    "color": "^3.0.0",
     "react": "16.3.1",
-    "react-native": "0.55.4"
+    "react-native": "0.55.4",
+    "styled-components": "^3.3.3",
+    "styled-components-ts": "^0.0.14"
   },
   "devDependencies": {
     "@types/react": "^16.4.1",
