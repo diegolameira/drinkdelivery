@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
-import { styl } from '@configs/theme';
+import { styl } from '@/configs/theme';
 
 interface Props {
   title?: string;

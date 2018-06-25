@@ -2,23 +2,28 @@ import React, { FormEvent } from 'react';
 import color from 'color';
 import styled from 'styled-components/native';
 
-import { styl } from '@configs/theme';
+import { styl } from '@/configs/theme';
 
-interface Props {
+export interface InputInterface {
   label?: string;
   placeholder?: string;
-  onChange?: ((event: FormEvent<HTMLElement>) => void) | undefined;
+  onChangeText?: ((event: FormEvent<HTMLElement>) => void) | undefined;
   align?: string;
 }
 
-export default ({ label, placeholder, onChange, align }: Props) => (
+export default ({
+  label,
+  placeholder,
+  onChangeText,
+  align
+}: InputInterface) => (
   <Wrapper>
     <Label>{label ? label.toUpperCase() : null}</Label>
     <Input
       textAlign={align}
       underlineColorAndroid="transparent"
       placeholder={placeholder}
-      onChange={onChange}
+      onChangeText={onChangeText}
     />
   </Wrapper>
 );

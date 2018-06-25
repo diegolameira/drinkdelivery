@@ -3,11 +3,11 @@ import { NativeRouter, Route } from 'react-router-native';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components/native';
 
-import { Theme, styl } from '@configs/theme';
-import { ApolloWrapper } from '@configs/graphql';
-import Header from '@components/Header';
-import Home from '@pages/Home';
-import Products from '@pages/Products';
+import { Theme, styl } from '@/configs/theme';
+import { ApolloWrapper } from '@/configs/graphql';
+import Header from '@/components/Header';
+import Home from '@/pages/Home';
+import Products from '@/pages/Products';
 
 export default () => (
   <ApolloWrapper>

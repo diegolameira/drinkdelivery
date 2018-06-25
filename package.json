@@ -65,6 +65,9 @@
       "\\.snap$",
       "<rootDir>/node_modules/"
     ],
+    "moduleNameMapper": {
+      "@/(.*)$": "<rootDir>/src/$1"
+    },
     "cacheDirectory": ".jest/cache"
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-native';
 
-import { View, Text } from '@components/Button';
+import { View, Text } from '@/components/Button';
 
 interface Props {
   title: string;

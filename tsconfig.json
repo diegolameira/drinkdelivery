@@ -7,9 +7,9 @@
     "baseUrl": "./src",
     "paths": {
       "*": ["./*"],
-      "@pages/*": ["./pages/*"],
-      "@configs/*": ["./configs/*"],
-      "@components/*": ["./components/*"]
+      "@/pages/*": ["./pages/*"],
+      "@/configs/*": ["./configs/*"],
+      "@/components/*": ["./components/*"]
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true

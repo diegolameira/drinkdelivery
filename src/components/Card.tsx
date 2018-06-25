@@ -3,9 +3,9 @@ import color from 'color';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 
-import { styl } from '@configs/theme';
-import Counter from '@components/Counter';
-import Price from '@components/Price';
+import { styl } from '@/configs/theme';
+import Counter from '@/components/Counter';
+import Price from '@/components/Price';
 
 interface Props {
   title: string;

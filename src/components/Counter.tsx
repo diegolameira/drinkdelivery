@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { styl, Theme } from '@configs/theme';
-import Input from '@components/Input';
-import Button from '@components/Button';
+import { styl, Theme } from '@/configs/theme';
+import Input from '@/components/Input';
+import Button from '@/components/Button';
 
 const colors = new Theme();
 

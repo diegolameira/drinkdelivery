@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { styl } from '@configs/theme';
-import Input from '@components/Input';
-import Link from '@components/Link';
+import { styl } from '@/configs/theme';
+import Link from '@/components/Link';
+import GeolocationSearchInput from '@/components/GeolocationSearchInput';
 
 export default () => (
   <Wrapper>
     <Title>Monstro, {'\n'}vamos beber?</Title>
-    <Input label={'Endereço de entrega'} placeholder={'Ex. Av Paulista 228'} />
+    <GeolocationSearchInput
+      label={'Endereço de entrega'}
+      placeholder={'Ex. Av Paulista 228'}
+    />
     <Link title={'Ver produtos'} to="/products" />
   </Wrapper>
 );

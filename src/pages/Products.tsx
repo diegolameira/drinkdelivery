@@ -7,9 +7,9 @@ import {
   pocCategorySearch,
   PocCategorySearchInterface,
   ProductVariantsInterface
-} from '@configs/graphql';
-import { styl } from '@configs/theme';
-import Card from '@components/Card';
+} from '@/configs/graphql';
+import { styl } from '@/configs/theme';
+import Card from '@/components/Card';
 
 interface Props {}
 
