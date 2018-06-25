@@ -9,6 +9,7 @@ export interface InputInterface {
   placeholder?: string;
   onChangeText?: ((event: FormEvent<HTMLElement>) => void) | undefined;
   align?: string;
+  value?: string;
 }
 
 export default ({
@@ -33,7 +34,7 @@ const Wrapper = styl(styled.View)`
 `;
 
 const Label = styl(styled.Text)`
-  color: ${({ theme }) => theme.foreground};
+  color: ${({ theme }) => theme.foreground || '#000'};
   font-size: 15px;
   font-weight: 300;
   line-height: 15px;
@@ -43,10 +44,10 @@ const Label = styl(styled.Text)`
 `;
 
 const Input = styl(styled.TextInput)`
-  color: ${({ theme }) => theme.foreground};
+  color: ${({ theme }) => theme.foreground || '#000'};
   border-radius: 5px;
   border: 1px solid ${({ theme }) =>
-    color(theme.foreground)
+    color(theme.foreground || '#000')
       .alpha(0.2)
       .toString()};
   padding: 18px 20px;
