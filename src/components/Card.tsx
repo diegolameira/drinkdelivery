@@ -9,13 +9,13 @@ import Price from '@components/Price';
 
 interface Props {
   title: string;
-  picture: string;
+  imageUrl: string;
   price: number;
 }
 
 export default ({
   title,
-  picture = 'http://via.placeholder.com/200x200',
+  imageUrl = 'http://via.placeholder.com/200x200',
   price = 0.0
 }: Props) => (
   <Wrapper>
@@ -24,7 +24,7 @@ export default ({
       <FastImage
         style={{ width: 200, height: 200 }}
         source={{
-          uri: picture,
+          uri: imageUrl,
           priority: FastImage.priority.normal
         }}
         resizeMode={FastImage.resizeMode.contain}

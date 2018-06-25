@@ -1,7 +1,13 @@
 import React from 'react';
 import { ListView } from 'react-native';
 import styled from 'styled-components/native';
+import { Query } from 'react-apollo';
 
+import {
+  pocCategorySearch,
+  PocCategorySearchInterface,
+  ProductVariantsInterface
+} from '@configs/graphql';
 import { styl } from '@configs/theme';
 import Card from '@components/Card';
 
@@ -10,13 +16,37 @@ interface Props {}
 interface CardProps {
   id: number;
   title: string;
-  picture: string;
+  imageUrl: string;
   price: number;
 }
 
+// TODO: variables throught route params
+const variables = {
+  id: '243',
+  search: '',
+  categoryId: 0
+};
+
 export default (props: Props) => (
-  <ListView dataSource={ds.cloneWithRows(Mock)} renderRow={renderItem} />
+  <Query query={pocCategorySearch} variables={variables}>
+    {({ loading, error, data }) => {
+      if (loading) return <Text>{'Loading...'}</Text>;
+      if (error) return <Text>{`Error! ${error.message}`}</Text>;
+      return (
+        <ListView
+          dataSource={ds.cloneWithRows(parser(data))}
+          renderRow={renderItem}
+        />
+      );
+    }}
+  </Query>
 );
+
+const parser = (data: PocCategorySearchInterface) => {
+  return data.poc.products.map(products => {
+    return products.productVariants[0];
+  });
+};
 
 const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
@@ -26,23 +56,12 @@ const renderItem = (props: CardProps) => (
   </Wrapper>
 );
 
+const Text = styl(styled.Text)`
+  margin: 30px;
+  text-align: center;
+  font-size: 30px;
+`;
+
 const Wrapper = styl(styled.View)`
   margin: 10px 30px;
 `;
-
-const Mock: CardProps[] = [
-  {
-    id: 1,
-    title: 'Brahma 600ml',
-    picture:
-      'https://s3-us-west-2.amazonaws.com/courier-images-prod/product/00009110_fd310686-8c79-468e-83b4-f6bb69f4ee78.jpg',
-    price: 974.44
-  },
-  {
-    id: 2,
-    title: 'Brahma 600ml',
-    picture:
-      'https://s3-us-west-2.amazonaws.com/courier-images-prod/product/00009110_fd310686-8c79-468e-83b4-f6bb69f4ee78.jpg',
-    price: 74.4
-  }
-];
