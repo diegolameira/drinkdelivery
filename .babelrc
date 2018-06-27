@@ -6,9 +6,7 @@
       {
         root: ['/'],
         alias: {
-          '@/pages': './src/pages',
-          '@/configs': './src/configs',
-          '@/components': './src/components'
+          '@': './src',
         }
       }
     ]

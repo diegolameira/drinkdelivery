@@ -4,12 +4,9 @@
     "module": "commonjs",
     "jsx": "react",
     "strict": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "*": ["./*"],
-      "@/pages/*": ["./pages/*"],
-      "@/configs/*": ["./configs/*"],
-      "@/components/*": ["./components/*"]
+      "@/*": ["src/*"]
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
