@@ -1,14 +1,10 @@
 import React from 'react';
 import { ListView } from 'react-native';
-import styled from 'styled-components/native';
 import { Query } from 'react-apollo';
 
-import {
-  pocCategorySearch,
-  PocCategorySearchInterface,
-  ProductVariantsInterface
-} from '@/configs/graphql';
-import { styl } from '@/configs/theme';
+import { pocCategorySearch } from '@/graphql';
+import { PocCategorySearchInterface } from '@/graphql/pocCategorySearch';
+import { Wrapper, Text } from './style';
 import Card from '@/components/Card';
 
 interface Props {}
@@ -32,6 +28,7 @@ export default (props: Props) => (
     {({ loading, error, data }) => {
       if (loading) return <Text>{'Loading...'}</Text>;
       if (error) return <Text>{`Error! ${error.message}`}</Text>;
+      console.log(pocCategorySearch, variables);
       return (
         <ListView
           dataSource={ds.cloneWithRows(parser(data))}
@@ -55,13 +52,3 @@ const renderItem = (props: CardProps) => (
     <Card {...props} />
   </Wrapper>
 );
-
-const Text = styl(styled.Text)`
-  margin: 30px;
-  text-align: center;
-  font-size: 30px;
-`;
-
-const Wrapper = styl(styled.View)`
-  margin: 10px 30px;
-`;
