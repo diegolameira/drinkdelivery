@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeRouter, Route } from 'react-router-native';
+import { NativeRouter, Route, BackButton } from 'react-router-native';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components/native';
 
@@ -16,6 +16,7 @@ export default () => (
         <Header />
         <NativeRouter>
           <Main>
+            <BackButton />
             <Route exact path="/" component={Home} />
             <Route path="/products/:id" component={Products} />
           </Main>
