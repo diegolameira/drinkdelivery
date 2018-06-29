@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { styl } from '@/configs/theme';
+import { styl } from '@/Theme';
 
 interface Props {
   value: number;

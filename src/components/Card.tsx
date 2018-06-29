@@ -3,7 +3,7 @@ import color from 'color';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 
-import { styl } from '@/configs/theme';
+import { styl } from '@/Theme';
 import Counter from '@/components/Counter';
 import Price from '@/components/Price';
 

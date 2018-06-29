@@ -2,7 +2,7 @@ import React, { FormEvent } from 'react';
 import color from 'color';
 import styled from 'styled-components/native';
 
-import { styl } from '@/configs/theme';
+import { styl } from '@/Theme';
 
 export interface InputInterface {
   label?: string;
@@ -16,11 +16,13 @@ export default ({
   label,
   placeholder,
   onChangeText,
-  align
+  align,
+  value
 }: InputInterface) => (
   <Wrapper>
     <Label>{label ? label.toUpperCase() : null}</Label>
     <Input
+      defaultValue={value}
       textAlign={align}
       underlineColorAndroid="transparent"
       placeholder={placeholder}

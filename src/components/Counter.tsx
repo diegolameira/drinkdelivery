@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { styl, Theme } from '@/configs/theme';
+import { styl, Theme } from '@/Theme';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
