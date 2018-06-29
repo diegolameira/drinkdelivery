@@ -11,7 +11,7 @@ interface ListItem {
 }
 
 interface ListProps {
-  items: (ListItem | React.Component)[];
+  items: ListItem[];
   onSelect?: (id: string) => void;
 }
 
@@ -41,8 +41,7 @@ export class List extends React.Component<ListProps, {}> {
   render = () => {
     const { items } = this.props;
     if (!items || !items.length) return <Title>Carregando...</Title>;
-    // TODO: check if react elm
-    const renderRow = true ? this.__renderItem : items;
+    const renderRow = this.__renderItem;
     return (
       <ListWrapper
         dataSource={this.dataSource.cloneWithRows(this.props.items)}
