@@ -31,12 +31,7 @@ const TouchableWrapper = styl(
 `;
 
 export const View = styl(styled.View)`
-  ${props =>
-    props.outline
-      ? null
-      : `background: ${
-          props.danger ? props.theme.danger : props.theme.primary
-        }`}
+  ${props => getBackground(props)}
   border: 2px solid ${({ danger, theme }) =>
     danger ? theme.danger : theme.primary};
   border-radius: 6px;
@@ -51,3 +46,10 @@ export const Text = styl(styled.Text)`
   text-align: center;
   height: ${props => (props.children ? 'auto' : '0')};
 `;
+
+const getBackground = ({ outline, danger, theme, disabled }) => {
+  if (outline) return;
+  if (disabled) return 'background: #ccc;';
+  if (danger) return `background: ${theme.danger}`;
+  return `background: ${theme.primary}`;
+};

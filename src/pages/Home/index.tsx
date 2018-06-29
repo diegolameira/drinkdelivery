@@ -6,6 +6,12 @@ import { Address } from '@/containers/Address';
 import { Wrapper, Title } from './style';
 
 export default class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      place: null
+    };
+  }
   onUpdate = (place: any) => {
     this.setState({
       place
@@ -18,8 +24,13 @@ export default class HomePage extends React.Component {
         <Address
           label={'Endereço de entrega'}
           placeholder={'Ex. Av Paulista 228'}
+          onUpdate={this.onUpdate}
         />
-        <Link title={'Ver produtos'} to="/products" />
+        <Link
+          disabled={!this.state.place}
+          title={'Ver produtos'}
+          to="/products"
+        />
       </Wrapper>
     );
   }
