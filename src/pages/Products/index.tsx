@@ -16,19 +16,20 @@ interface CardProps {
   price: number;
 }
 
-// TODO: variables throught route params
 const variables = {
-  id: '243',
   search: '',
   categoryId: 0
 };
 
-export default (props: Props) => (
-  <Query query={pocCategorySearch} variables={variables}>
+export default ({
+  match: {
+    params: { id }
+  }
+}: Props) => (
+  <Query query={pocCategorySearch} variables={{ ...variables, id }}>
     {({ loading, error, data }) => {
       if (loading) return <Text>{'Loading...'}</Text>;
       if (error) return <Text>{`Error! ${error.message}`}</Text>;
-      console.log(pocCategorySearch, variables);
       return (
         <ListView
           dataSource={ds.cloneWithRows(parser(data))}

@@ -17,7 +17,7 @@ export default () => (
         <NativeRouter>
           <Main>
             <Route exact path="/" component={Home} />
-            <Route path="/products" component={Products} />
+            <Route path="/products/:id" component={Products} />
           </Main>
         </NativeRouter>
       </Container>
