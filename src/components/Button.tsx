@@ -7,14 +7,22 @@ import { styl } from '@/Theme';
 interface Props {
   title?: string;
   onPress?: () => void;
-  outline: boolean;
-  danger: boolean;
+  outline?: boolean;
+  danger?: boolean;
   children: any;
+  disabled?: boolean;
 }
 
-export default ({ title, onPress, children, outline, danger }: Props) => (
-  <TouchableWrapper onPress={onPress}>
-    <View outline={outline} danger={danger}>
+export default ({
+  title,
+  onPress,
+  children,
+  outline,
+  danger,
+  disabled
+}: Props) => (
+  <TouchableWrapper onPress={() => (!disabled && onPress ? onPress() : null)}>
+    <View {...{ danger, outline, disabled }}>
       {children}
       <Text>{title ? title.toUpperCase() : null}</Text>
     </View>
@@ -34,6 +42,7 @@ export const View = styl(styled.View)`
   ${props => getBackground(props)}
   border: 2px solid ${({ danger, theme }) =>
     danger ? theme.danger : theme.primary};
+  opacity: ${({ disabled }) => (disabled ? 0.2 : 1)};
   border-radius: 6px;
   padding: 16px 20px;
   margin: 10px 0;
