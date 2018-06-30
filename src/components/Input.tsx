@@ -7,26 +7,35 @@ import { styl } from '@/Theme';
 export interface InputInterface {
   label?: string;
   placeholder?: string;
-  onChangeText?: ((event: FormEvent<HTMLElement>) => void) | undefined;
   align?: string;
   value?: string;
+  type?: string;
+  selectTextOnFocus?: boolean;
+  onBlur?: ((event: FormEvent<HTMLElement>) => void) | undefined;
+  onChangeText?: ((value: string) => void) | undefined;
 }
 
 export default ({
   label,
   placeholder,
   onChangeText,
+  onBlur,
   align,
-  value
+  value,
+  type = 'default',
+  selectTextOnFocus
 }: InputInterface) => (
   <Wrapper>
     <Label>{label ? label.toUpperCase() : null}</Label>
     <Input
+      keyboardType={type}
       defaultValue={value}
       textAlign={align}
       underlineColorAndroid="transparent"
       placeholder={placeholder}
+      onBlur={onBlur}
       onChangeText={onChangeText}
+      selectTextOnFocus={selectTextOnFocus}
     />
   </Wrapper>
 );
@@ -52,6 +61,7 @@ const Input = styl(styled.TextInput)`
     color(theme.foreground || '#000')
       .alpha(0.2)
       .toString()};
-  padding: 18px 20px;
+  padding: 18px 10px;
   font-size: 20px;
+  min-width: 70px;
 `;

@@ -67,6 +67,7 @@ export class AddressForm extends Component<Props, State> {
           {...this.props}
           value={value}
           onChangeText={text => this.lazySearch(text)}
+          selectTextOnFocus={true}
         />
         {items && <List items={items} onSelect={this.onSelect} />}
       </Wrapper>
