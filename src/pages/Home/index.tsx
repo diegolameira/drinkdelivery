@@ -8,53 +8,90 @@ import { pocSearchMethod } from '@/graphql';
 
 import { Wrapper, Title } from './style';
 
-export default class HomePage extends React.Component {
-  constructor(props) {
+interface HomeProps {}
+interface HomeState {
+  id?: string;
+  isLoading?: boolean;
+  notFound?: boolean;
+}
+
+export default class HomePage extends React.Component<HomeProps, HomeState> {
+  constructor(props: HomeProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      id: '',
+      isLoading: false,
+      notFound: false
+    };
   }
-  onUpdate = (id: any) => {
+  setPOC = (id: string = '') => {
     this.setState({
-      id
+      id,
+      notFound: !id
     });
   };
-
+  setLoading = (isLoading: boolean) => {
+    this.setState({
+      isLoading
+    });
+  };
+  onClear = () => {
+    this.setState({
+      id: '',
+      notFound: false
+    });
+  };
   render() {
-    const { id, isLoading } = this.state;
+    const { setPOC, setLoading, onClear, state } = this;
+    const { id, isLoading, notFound } = state;
+    const isDisabled = isLoading || !id;
+    const linkLabel = isLoading
+      ? 'Pera aí...'
+      : id
+        ? 'Bora comprar!'
+        : notFound
+          ? 'Tá tudo fechado, irmão!'
+          : 'Bota teu endereço ai';
     return (
       <Wrapper>
         <Title>Monstro, {'\n'}vamos beber?</Title>
         <ApolloConsumer>
-          {client => (
-            <View>
-              <Address
-                label={'Endereço de entrega'}
-                placeholder={'Ex. Av Paulista 228'}
-                onUpdate={async ({ lat, lng }) => {
-                  this.setState({ isLoading: true });
-                  const { data } = await client.query({
-                    query: pocSearchMethod,
-                    variables: {
-                      lat,
-                      long: lng,
-                      algorithm: 'NEAREST',
-                      now: new Date().toISOString()
-                    }
-                  });
-                  const poc = data.pocSearch.filter(
-                    poc => poc.status == 'AVAILABLE'
-                  )[0];
-                  this.onUpdate(poc ? poc.id : false);
-                  this.setState({ isLoading: false });
-                }}
-              />
-              <Link
-                disabled={isLoading || !id}
-                title={isLoading ? 'Carregando...' : 'Ver produtos'}
-                to={id ? `/products/${id}` : ''}
-              />
-            </View>
-          )}
+          {client => {
+            const onUpdate = async ({ lat, lng }) => {
+              onClear();
+              setLoading(true);
+              const {
+                data: { pocSearch }
+              } = await client.query({
+                query: pocSearchMethod,
+                variables: {
+                  lat,
+                  long: lng,
+                  algorithm: 'NEAREST',
+                  now: new Date().toISOString()
+                }
+              });
+              const { id } = pocSearch[0] || {};
+              setPOC(id);
+              setLoading(false);
+            };
+
+            return (
+              <View>
+                <Address
+                  label={'Endereço de entrega'}
+                  placeholder={'Ex. Av Paulista 228'}
+                  onUpdate={onUpdate}
+                  onClear={onClear}
+                />
+                <Link
+                  disabled={isDisabled}
+                  title={linkLabel}
+                  to={id ? `/products/${id}` : ''}
+                />
+              </View>
+            );
+          }}
         </ApolloConsumer>
       </Wrapper>
     );

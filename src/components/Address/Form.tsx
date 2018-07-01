@@ -4,7 +4,6 @@ import { throttle } from '@/shared/Helpers';
 import Input from '@/components/Input';
 import { List } from '@/components/List';
 
-import { Place, Suggestion } from './Interfaces';
 import { getPlaceSuggestionsByTerm, getPlaceDetails } from './Helpers';
 
 import { Wrapper } from './Form.styles';
@@ -13,7 +12,8 @@ interface Props {
   googleKey: string;
   label?: string;
   placeholder?: string;
-  onUpdate: (place: Place) => void;
+  onClear?: () => void;
+  onUpdate?: (place: Place) => void;
 }
 
 interface State {
@@ -52,6 +52,7 @@ export class AddressForm extends Component<Props, State> {
   };
 
   render() {
+    const { onClear } = this.props;
     const { suggestions, value } = this.state || {};
     const items =
       suggestions &&
@@ -66,7 +67,10 @@ export class AddressForm extends Component<Props, State> {
         <Input
           {...this.props}
           value={value}
-          onChangeText={text => this.lazySearch(text)}
+          onChangeText={text => {
+            if (onClear) onClear();
+            this.lazySearch(text);
+          }}
           selectTextOnFocus={true}
         />
         {items && <List items={items} onSelect={this.onSelect} />}

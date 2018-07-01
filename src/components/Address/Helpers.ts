@@ -1,7 +1,5 @@
 import { http } from '@/shared/Helpers';
 
-import { Suggestion, Place } from './Interfaces';
-
 export const getPlaceSuggestionsByTerm = (
   key: string,
   term: string

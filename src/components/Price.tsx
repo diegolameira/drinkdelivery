@@ -26,7 +26,8 @@ export default ({ value, label }: Props) => {
   );
 };
 
-const parser = (price: number) => (price + '').split('.');
+const parser = (price: number) =>
+  (parseFloat(price).toFixed(2) + '').split('.');
 
 const Price = styl(styled.Text)`
   font-size: 30px;

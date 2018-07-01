@@ -2,18 +2,22 @@ import React from 'react';
 import color from 'color';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
+import gql from 'graphql-tag';
+import { Mutation } from 'react-apollo';
 
 import { styl } from '@/Theme';
 import Counter from '@/components/Counter';
 import Price from '@/components/Price';
 
 interface Props {
+  id: string;
   title: string;
   imageUrl: string;
   price: number;
 }
 
 export default ({
+  id,
   title,
   imageUrl = 'http://via.placeholder.com/200x200',
   price = 0.0
@@ -34,10 +38,40 @@ export default ({
       <PriceWrapper>
         <Price value={price} />
       </PriceWrapper>
-      <Counter />
+      <Mutation mutation={UPDATE_CART}>
+        {(updateItemInCart, { data }) => {
+          return (
+            <Counter
+              onUpdateCount={count =>
+                updateItemInCart({
+                  variables: { id, title, count, imageUrl, price }
+                })
+              }
+            />
+          );
+        }}
+      </Mutation>
     </Footer>
   </Wrapper>
 );
+
+const UPDATE_CART = gql`
+  mutation UPDATE_CART(
+    $id: String!
+    $count: Int!
+    $title: String
+    $imageUrl: String
+    $price: Int
+  ) {
+    updateItemInCart(
+      id: $id
+      title: $title
+      count: $count
+      imageUrl: $imageUrl
+      price: $price
+    ) @client
+  }
+`;
 
 const Wrapper = styl(styled.View)`
   align-items: center;

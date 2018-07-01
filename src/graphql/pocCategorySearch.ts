@@ -5,6 +5,7 @@ export const pocCategorySearch = gql`
     poc(id: $id) {
       products(categoryId: $categoryId, search: $search) {
         productVariants {
+          productVariantId
           title
           description
           imageUrl
@@ -16,6 +17,7 @@ export const pocCategorySearch = gql`
 `;
 
 export interface ProductVariantsInterface {
+  productVariantId: string;
   title: string;
   description: string;
   imageUrl: string;

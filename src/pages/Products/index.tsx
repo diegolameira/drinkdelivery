@@ -28,8 +28,8 @@ export default ({
 }: Props) => (
   <Query query={pocCategorySearch} variables={{ ...variables, id }}>
     {({ loading, error, data }) => {
-      if (loading) return <Text>{'Loading...'}</Text>;
-      if (error) return <Text>{`Error! ${error.message}`}</Text>;
+      if (loading) return <Text>{'Guenta aí...'}</Text>;
+      if (error) return <Text>{`Ih! Deu ruim! ${error.message}`}</Text>;
       return (
         <ListView
           dataSource={ds.cloneWithRows(parser(data))}
@@ -42,7 +42,20 @@ export default ({
 
 const parser = (data: PocCategorySearchInterface) => {
   return data.poc.products.map(products => {
-    return products.productVariants[0];
+    const {
+      title,
+      description,
+      imageUrl,
+      productVariantId,
+      price
+    } = products.productVariants[0];
+    return {
+      id: productVariantId,
+      title,
+      description,
+      imageUrl,
+      price
+    };
   });
 };
 
