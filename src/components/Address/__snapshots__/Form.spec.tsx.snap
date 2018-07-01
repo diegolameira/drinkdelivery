@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddressForm should render as expected 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "left": 0,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0,
+        "position": "relative",
+        "right": 0,
+        "top": 0,
+        "zIndex": 9999,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingBottom": 10,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 15,
+            "fontWeight": "300",
+            "height": 0,
+            "lineHeight": 15,
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "opacity": 0.5,
+          },
+          undefined,
+        ]
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="default"
+      onChangeText={[Function]}
+      selectTextOnFocus={true}
+      style={
+        Array [
+          Object {
+            "borderColor": "rgba(0, 0, 0, 0.2)",
+            "borderRadius": 5,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "color": "#000",
+            "fontSize": 20,
+            "minWidth": 70,
+            "paddingBottom": 18,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 18,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;
+
+exports[`AddressForm should render as expected 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AddressForm
+    theme={
+      Theme {
+        "background": "#fff",
+        "danger": "#DB0000",
+        "foreground": "#000",
+        "primary": "#FCD635",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          onChangeText={[Function]}
+          selectTextOnFocus={true}
+          theme={
+            Theme {
+              "background": "#fff",
+              "danger": "#DB0000",
+              "foreground": "#000",
+              "primary": "#FCD635",
+            }
+          }
+        />,
+        undefined,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "onChangeText": [Function],
+          "selectTextOnFocus": true,
+          "theme": Theme {
+            "background": "#fff",
+            "danger": "#DB0000",
+            "foreground": "#000",
+            "primary": "#FCD635",
+          },
+          "value": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      undefined,
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            onChangeText={[Function]}
+            selectTextOnFocus={true}
+            theme={
+              Theme {
+                "background": "#fff",
+                "danger": "#DB0000",
+                "foreground": "#000",
+                "primary": "#FCD635",
+              }
+            }
+          />,
+          undefined,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "onChangeText": [Function],
+            "selectTextOnFocus": true,
+            "theme": Theme {
+              "background": "#fff",
+              "danger": "#DB0000",
+              "foreground": "#000",
+              "primary": "#FCD635",
+            },
+            "value": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        undefined,
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`AddressForm should render as expected 3`] = `
+<View
+  label="Label"
+  placeholder="placeholder"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingBottom": 10,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 10,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 15,
+            "fontWeight": "300",
+            "height": 0,
+            "lineHeight": 15,
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "opacity": 0.5,
+          },
+          undefined,
+        ]
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="default"
+      onChangeText={[Function]}
+      selectTextOnFocus={true}
+      style={
+        Array [
+          Object {
+            "borderColor": "rgba(0, 0, 0, 0.2)",
+            "borderRadius": 5,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "color": "#000",
+            "fontSize": 20,
+            "minWidth": 70,
+            "paddingBottom": 18,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 18,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;
+
+exports[`AddressForm should render as expected 4`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AddressForm
+    label="Label"
+    placeholder="placeholder"
+    theme={
+      Theme {
+        "background": "#fff",
+        "danger": "#DB0000",
+        "foreground": "#000",
+        "primary": "#FCD635",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          label="Label"
+          onChangeText={[Function]}
+          placeholder="placeholder"
+          selectTextOnFocus={true}
+          theme={
+            Theme {
+              "background": "#fff",
+              "danger": "#DB0000",
+              "foreground": "#000",
+              "primary": "#FCD635",
+            }
+          }
+        />,
+        undefined,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "label": "Label",
+          "onChangeText": [Function],
+          "placeholder": "placeholder",
+          "selectTextOnFocus": true,
+          "theme": Theme {
+            "background": "#fff",
+            "danger": "#DB0000",
+            "foreground": "#000",
+            "primary": "#FCD635",
+          },
+          "value": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      undefined,
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            label="Label"
+            onChangeText={[Function]}
+            placeholder="placeholder"
+            selectTextOnFocus={true}
+            theme={
+              Theme {
+                "background": "#fff",
+                "danger": "#DB0000",
+                "foreground": "#000",
+                "primary": "#FCD635",
+              }
+            }
+          />,
+          undefined,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "label": "Label",
+            "onChangeText": [Function],
+            "placeholder": "placeholder",
+            "selectTextOnFocus": true,
+            "theme": Theme {
+              "background": "#fff",
+              "danger": "#DB0000",
+              "foreground": "#000",
+              "primary": "#FCD635",
+            },
+            "value": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        undefined,
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
