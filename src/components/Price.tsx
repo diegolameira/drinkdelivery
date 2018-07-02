@@ -7,9 +7,10 @@ import { styl } from '@/Theme';
 interface Props {
   value: number;
   label?: string;
+  hideCurrency?: boolean;
 }
 
-export default ({ value, label }: Props) => {
+export default ({ value, label, hideCurrency }: Props) => {
   const price = parser(value);
   return (
     <Price>
@@ -19,15 +20,15 @@ export default ({ value, label }: Props) => {
           {'\n'}
         </Label>
       ) : null}
-      <Currency>{'R$'}</Currency>
+      {hideCurrency ? false : <Currency>{'R$'}</Currency>}
       {price[0]}
       <Cents>{`,${price[1] || '00'}`}</Cents>
     </Price>
   );
 };
 
-const parser = (price: number) =>
-  (parseFloat(price).toFixed(2) + '').split('.');
+const parser = (price: number = 0.0) =>
+  (parseFloat(price + 0.0).toFixed(2) + '').split('.');
 
 const Price = styl(styled.Text)`
   font-size: 30px;
