@@ -5,7 +5,7 @@ import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { Theme } from '@/Theme';
+import { Theme } from '@/shared/Theme';
 
 import { AddressForm } from './Form';
 

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { styl, Theme } from '@/Theme';
+import { styl, Theme } from '@/shared/Theme';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
-import { debounce } from '@/shared/Helpers';
 
 const colors = new Theme();
 
@@ -18,41 +17,39 @@ interface State {
   count: number;
 }
 export default class Counter extends Component<Props, State> {
-  onUpdateCounter: () => void;
   constructor(props: Props) {
     super(props);
     this.state = {
       count: props.min || 0
     };
-    this.onUpdateCounter = debounce(props.onUpdateCount, 200);
   }
+
+  onUpdate = (count: number) => {
+    const { onUpdateCount } = this.props;
+    if (onUpdateCount) onUpdateCount(count);
+  };
 
   increment = () => {
     const { max } = this.props;
+
     this.setState(
-      ({ count }) => ({
-        count: !max || count < max ? count + 1 : count
-      }),
-      () => this.onUpdateCounter(this.state.count)
+      ({ count }) => ({ count: !max || count < max ? count + 1 : count }),
+      () => this.onUpdate(this.state.count)
     );
   };
 
   decrement = () => {
     const { min } = this.props;
+
     this.setState(
-      ({ count }) => ({
-        count: count > (min || 0) ? count - 1 : count
-      }),
-      () => this.onUpdateCounter(this.state.count)
+      ({ count }) => ({ count: count > (min || 0) ? count - 1 : count }),
+      () => this.onUpdate(this.state.count)
     );
   };
 
   update = (count: string) => {
-    this.setState(
-      {
-        count: !count ? 0 : parseInt(count)
-      },
-      () => this.onUpdateCounter(this.state.count)
+    this.setState({ count: !count ? 0 : parseInt(count) }, () =>
+      this.onUpdate(this.state.count)
     );
   };
 

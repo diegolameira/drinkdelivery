@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { AddressForm } from '@/components/Address';
-import { Place } from '@/components/Address/Interfaces';
 
 const GOOGLE_MAPS_API_KEY: string = process.env.GOOGLE_MAPS_API_KEY + '';
 

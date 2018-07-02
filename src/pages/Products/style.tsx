@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 
 export const Text = styl(styled.Text)`
     margin: 30px;

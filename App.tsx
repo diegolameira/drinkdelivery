@@ -3,8 +3,8 @@ import { NativeRouter, Route, BackButton } from 'react-router-native';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components/native';
 
-import { Theme, styl } from '@/Theme';
-import { ApolloWrapper } from '@/apollo';
+import { Theme, styl } from '@/shared/Theme';
+import { ApolloWrapper } from '@/Apollo';
 import Header from '@/components/Header';
 import Home from '@/pages/Home';
 import Products from '@/pages/Products';

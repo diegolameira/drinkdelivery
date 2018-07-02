@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 
 interface Props {
   value: number;

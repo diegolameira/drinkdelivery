@@ -5,7 +5,7 @@ import FastImage from 'react-native-fast-image';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 import Counter from '@/components/Counter';
 import Price from '@/components/Price';
 
@@ -39,11 +39,11 @@ export default ({
         <Price hideCurrency value={price} />
       </PriceWrapper>
       <Mutation mutation={UPDATE_CART}>
-        {(updateItemInCart, { data }) => {
+        {(addOrUpdate, { data }) => {
           return (
             <Counter
               onUpdateCount={count =>
-                updateItemInCart({
+                addOrUpdate({
                   variables: { id, title, count, imageUrl, price }
                 })
               }
@@ -63,7 +63,7 @@ const UPDATE_CART = gql`
     $imageUrl: String
     $price: Int
   ) {
-    updateItemInCart(
+    addOrUpdate(
       id: $id
       title: $title
       count: $count

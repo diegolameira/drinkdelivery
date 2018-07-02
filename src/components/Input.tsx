@@ -2,7 +2,7 @@ import React, { FormEvent } from 'react';
 import color from 'color';
 import styled from 'styled-components/native';
 
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 
 export interface InputInterface {
   label?: string;

@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 import Link from '@/components/Link';
 import { Address } from '@/containers/Address';
-import { pocSearchMethod } from '@/graphql';
+import { pocSearchMethod } from '@/Apollo/tags/api';
 
 import { Wrapper, Title } from './style';
 

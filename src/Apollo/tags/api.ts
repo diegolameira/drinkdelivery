@@ -1,5 +1,30 @@
 import gql from 'graphql-tag';
 
+export const allCategoriesSearch = gql`
+  query allCategoriesSearch {
+    allCategory {
+      title
+      id
+    }
+  }
+`;
+
+export const pocCategorySearch = gql`
+  query pocCategorySearch($id: ID!, $search: String!, $categoryId: Int!) {
+    poc(id: $id) {
+      products(categoryId: $categoryId, search: $search) {
+        productVariants {
+          productVariantId
+          title
+          description
+          imageUrl
+          price
+        }
+      }
+    }
+  }
+`;
+
 export const pocSearchMethod = gql`
   query pocSearchMethod(
     $now: DateTime!

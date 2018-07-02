@@ -2,10 +2,10 @@ import React from 'react';
 import { ListView } from 'react-native';
 import { Query } from 'react-apollo';
 
-import { pocCategorySearch } from '@/graphql';
-import { PocCategorySearchInterface } from '@/graphql/pocCategorySearch';
-import { Wrapper, Text } from './style';
+import { pocCategorySearch } from '@/Apollo/tags/api';
 import Card from '@/components/Card';
+
+import { Wrapper, Text } from './style';
 
 interface Props {}
 

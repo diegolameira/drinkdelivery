@@ -6,7 +6,7 @@ import Carousel from 'react-native-snap-carousel';
 import gql from 'graphql-tag';
 import { compose, graphql, Query } from 'react-apollo';
 
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 import Button from '@/components/Button';
 import Price from '@/components/Price';
 

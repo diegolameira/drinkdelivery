@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { styl } from '@/Theme';
+import { styl } from '@/shared/Theme';
 
 export const Wrapper = styl(styled.View)`
   padding: 30px;

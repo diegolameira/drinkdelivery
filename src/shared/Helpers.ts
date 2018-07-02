@@ -1,3 +1,5 @@
+import { findIndex } from 'lodash-es';
+
 export const http = (url: string, options?: RequestInit): Promise<Response> =>
   fetch(url, options);
 
@@ -29,4 +31,12 @@ export const debounce = (callback, debounceTime) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => callback(...args), debounceTime);
   };
+};
+
+export const createOrUpdate = (array: Product[], { id, ...item }: Product) => {
+  const index = findIndex(array, i => i.id === id);
+  const product = !!~index ? { ...array[index], ...item } : { id, ...item };
+  return !!~index
+    ? [...array.slice(0, index), product, ...array.slice(index + 1)]
+    : [product, ...array];
 };
