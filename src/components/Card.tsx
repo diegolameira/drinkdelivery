@@ -26,7 +26,7 @@ export default ({
     <Header>{title}</Header>
     <PictureWrapper>
       <FastImage
-        style={{ width: 200, height: 200 }}
+        style={{ width: 150, height: 150 }}
         source={{
           uri: imageUrl,
           priority: FastImage.priority.normal
@@ -36,7 +36,7 @@ export default ({
     </PictureWrapper>
     <Footer>
       <PriceWrapper>
-        <Price value={price} />
+        <Price hideCurrency value={price} />
       </PriceWrapper>
       <Mutation mutation={UPDATE_CART}>
         {(updateItemInCart, { data }) => {
@@ -77,11 +77,11 @@ const Wrapper = styl(styled.View)`
   align-items: center;
   width: 100%;
   padding: 10px;
-  border-radius: 11px;
-  border: 2px solid ${({ theme }) =>
+  border: 0 solid ${({ theme }) =>
     color(theme.foreground)
-      .alpha(0.2)
+      .alpha(0.05)
       .toString()};
+  border-bottom-width: 1px;
 `;
 
 const PictureWrapper = styl(styled.View)`
@@ -89,7 +89,7 @@ const PictureWrapper = styl(styled.View)`
 `;
 
 const Header = styl(styled.Text)`
-  font-size: 28px;
+  font-size: 20px;
   line-height: 28px;
   font-weight: 400;
   text-align: center;
